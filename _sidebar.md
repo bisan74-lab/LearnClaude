@@ -1,70 +1,70 @@
-- [Claude Code 강의 소개 | 제대로 배우기](/content/learn.md)
-  - [Claude Code 사전 준비사항 | 제대로 배우기](/content/learn/prerequisites.md)
-  - [Claude Code 전체 코스 정리 | 제대로 배우기](/content/learn/wrap-up.md)
-  - completing-projects
-    - [Claude Code Part 3 정리 | 제대로 배우기](/content/learn/completing-projects/wrap-up.md)
-    - claude-code-desktop
-      - [Claude Code Diff와 Preview | 제대로 배우기](/content/learn/completing-projects/claude-code-desktop/diff-and-preview.md)
-      - [Claude Code Cloud 세션 | 제대로 배우기](/content/learn/completing-projects/claude-code-desktop/remote-sessions.md)
-      - [Claude Code Routines | 제대로 배우기](/content/learn/completing-projects/claude-code-desktop/routines.md)
-      - [Claude Code Desktop | 제대로 배우기](/content/learn/completing-projects/claude-code-desktop/terminal-to-desktop.md)
-    - parallel-work
-      - [Claude Code Agent Teams 기초 | 제대로 배우기](/content/learn/completing-projects/parallel-work/agent-teams-basics.md)
-      - [Claude Code Agent View | 제대로 배우기](/content/learn/completing-projects/parallel-work/agent-view.md)
-      - [Claude Code Git Worktree 격리 | 제대로 배우기](/content/learn/completing-projects/parallel-work/git-worktree-isolation.md)
-    - personal-project
-      - [Claude Code 개인 프로젝트 실습 | 제대로 배우기](/content/learn/completing-projects/personal-project/practice.md)
-      - [Claude Code 개인 프로젝트 셋업 | 제대로 배우기](/content/learn/completing-projects/personal-project/setup.md)
-    - spec-driven-development
-      - [Claude Code Compound | 제대로 배우기](/content/learn/completing-projects/spec-driven-development/compound.md)
-      - [Claude Code Build | 제대로 배우기](/content/learn/completing-projects/spec-driven-development/implementing.md)
-      - [Claude Code SDD 프로젝트 셋업 | 제대로 배우기](/content/learn/completing-projects/spec-driven-development/project-setup.md)
-      - [Claude Code 스펙 주도 개발(SDD) | 제대로 배우기](/content/learn/completing-projects/spec-driven-development/sdd.md)
-      - [Claude Code Sketch | 제대로 배우기](/content/learn/completing-projects/spec-driven-development/sketching-wireframe.md)
-      - [Claude Code Plan | 제대로 배우기](/content/learn/completing-projects/spec-driven-development/writing-plan.md)
-      - [Claude Code Specify | 제대로 배우기](/content/learn/completing-projects/spec-driven-development/writing-spec.md)
-  - extending-claude
-    - [Claude Code Vercel 배포 | 제대로 배우기](/content/learn/extending-claude/deploy-todo.md)
-    - [Claude Code Part 2 정리 | 제대로 배우기](/content/learn/extending-claude/wrap-up.md)
-    - adding-knowledge
-      - [Claude Code Skill 만들기 | 제대로 배우기](/content/learn/extending-claude/adding-knowledge/creating-skills.md)
-      - [Claude Code Custom Commands | 제대로 배우기](/content/learn/extending-claude/adding-knowledge/custom-commands.md)
-      - [Claude Code Skill 설치하기 | 제대로 배우기](/content/learn/extending-claude/adding-knowledge/installing-skills.md)
-      - [Claude Code Rules | 제대로 배우기](/content/learn/extending-claude/adding-knowledge/rules.md)
-      - [Claude Code Skills | 제대로 배우기](/content/learn/extending-claude/adding-knowledge/skills.md)
-    - execution-control
-      - [Claude Code Custom Agent | 제대로 배우기](/content/learn/extending-claude/execution-control/custom-agent.md)
-      - [Claude Code Hooks | 제대로 배우기](/content/learn/extending-claude/execution-control/hooks.md)
-    - external-connection
-      - [Claude Code Custom MCP 서버 만들기 | 제대로 배우기](/content/learn/extending-claude/external-connection/building-mcp-server.md)
-      - [Claude Code CLI 연결 | 제대로 배우기](/content/learn/extending-claude/external-connection/cli-connection.md)
-      - [Claude Code MCP 연결 | 제대로 배우기](/content/learn/extending-claude/external-connection/mcp-connection.md)
-      - [Claude Code CLI·MCP | 제대로 배우기](/content/learn/extending-claude/external-connection/tools-and-skills.md)
-    - plan-task
-      - [Claude Code 성공 기준과 TDD | 제대로 배우기](/content/learn/extending-claude/plan-task/red-green-refactor.md)
-      - [Claude Code Task 시스템 | 제대로 배우기](/content/learn/extending-claude/plan-task/task-basics.md)
-      - [Claude Code 테스트 기반 검증 | 제대로 배우기](/content/learn/extending-claude/plan-task/test-based-verification.md)
-      - [Claude Code 프롬프트 작성, What vs How | 제대로 배우기](/content/learn/extending-claude/plan-task/what-vs-how.md)
-  - references
-    - [Claude Code 토큰 소진 시 Copilot CLI 로 이어가기 | 제대로 배우기](/content/learn/references/copilot-cli-fallback.md)
-    - [Claude Code 링크 모음 | 제대로 배우기](/content/learn/references/links.md)
-    - [Claude Code Skill 개선과 Eval | 제대로 배우기](/content/learn/references/skill-improvement-eval.md)
-  - starting-conversations
-    - [Claude Code Part 1 정리 | 제대로 배우기](/content/learn/starting-conversations/wrap-up.md)
-    - context-management
-      - [CLAUDE.md | 제대로 배우기](/content/learn/starting-conversations/context-management/claude-md.md)
-      - [Claude Code Context Window | 제대로 배우기](/content/learn/starting-conversations/context-management/context-window.md)
-      - [Claude Code Memory | 제대로 배우기](/content/learn/starting-conversations/context-management/memory.md)
-      - [Claude Code Task Sizing | 제대로 배우기](/content/learn/starting-conversations/context-management/task-sizing.md)
-    - getting-started
-      - [Claude Code 세션과 권한 모드 | 제대로 배우기](/content/learn/starting-conversations/getting-started/daily-flow.md)
-      - [Claude와 첫 대화 | 제대로 배우기](/content/learn/starting-conversations/getting-started/first-conversation.md)
-      - [Claude Code 설치와 실행 | 제대로 배우기](/content/learn/starting-conversations/getting-started/setup-and-first-run.md)
-    - llm-basics
-      - [Claude Code Agentic Coding | 제대로 배우기](/content/learn/starting-conversations/llm-basics/agentic-coding-and-claude-code.md)
-      - [Claude Code LLM 기초 | 제대로 배우기](/content/learn/starting-conversations/llm-basics/llm-fundamentals.md)
-      - [Claude Code Tool Use & Agent | 제대로 배우기](/content/learn/starting-conversations/llm-basics/tool-use-and-agent.md)
-    - todo-app
-      - [Claude Code Plan Mode | 제대로 배우기](/content/learn/starting-conversations/todo-app/plan-mode.md)
-      - [Claude Code 요구사항·기술 스택 | 제대로 배우기](/content/learn/starting-conversations/todo-app/requirements.md)
-      - [Claude Code Todo 앱 만들기 | 제대로 배우기](/content/learn/starting-conversations/todo-app/todo-implementation.md)
+- [Claude Code 강의 소개](/content/learn.md)
+  - [Claude Code 사전 준비사항](/content/learn/prerequisites.md)
+  - [Claude Code 전체 코스 정리](/content/learn/wrap-up.md)
+  - 프로젝트 완성
+    - [Claude Code Part 3 정리](/content/learn/completing-projects/wrap-up.md)
+    - Claude Code Desktop
+      - [Claude Code Diff와 Preview](/content/learn/completing-projects/claude-code-desktop/diff-and-preview.md)
+      - [Claude Code Cloud 세션](/content/learn/completing-projects/claude-code-desktop/remote-sessions.md)
+      - [Claude Code Routines](/content/learn/completing-projects/claude-code-desktop/routines.md)
+      - [Claude Code Desktop](/content/learn/completing-projects/claude-code-desktop/terminal-to-desktop.md)
+    - 병렬 작업
+      - [Claude Code Agent Teams 기초](/content/learn/completing-projects/parallel-work/agent-teams-basics.md)
+      - [Claude Code Agent View](/content/learn/completing-projects/parallel-work/agent-view.md)
+      - [Claude Code Git Worktree 격리](/content/learn/completing-projects/parallel-work/git-worktree-isolation.md)
+    - 개인 프로젝트
+      - [Claude Code 개인 프로젝트 실습](/content/learn/completing-projects/personal-project/practice.md)
+      - [Claude Code 개인 프로젝트 셋업](/content/learn/completing-projects/personal-project/setup.md)
+    - 스펙 주도 개발
+      - [Claude Code Compound](/content/learn/completing-projects/spec-driven-development/compound.md)
+      - [Claude Code Build](/content/learn/completing-projects/spec-driven-development/implementing.md)
+      - [Claude Code SDD 프로젝트 셋업](/content/learn/completing-projects/spec-driven-development/project-setup.md)
+      - [Claude Code 스펙 주도 개발(SDD)](/content/learn/completing-projects/spec-driven-development/sdd.md)
+      - [Claude Code Sketch](/content/learn/completing-projects/spec-driven-development/sketching-wireframe.md)
+      - [Claude Code Plan](/content/learn/completing-projects/spec-driven-development/writing-plan.md)
+      - [Claude Code Specify](/content/learn/completing-projects/spec-driven-development/writing-spec.md)
+  - Claude 확장
+    - [Claude Code Vercel 배포](/content/learn/extending-claude/deploy-todo.md)
+    - [Claude Code Part 2 정리](/content/learn/extending-claude/wrap-up.md)
+    - 지식 추가하기
+      - [Claude Code Skill 만들기](/content/learn/extending-claude/adding-knowledge/creating-skills.md)
+      - [Claude Code Custom Commands](/content/learn/extending-claude/adding-knowledge/custom-commands.md)
+      - [Claude Code Skill 설치하기](/content/learn/extending-claude/adding-knowledge/installing-skills.md)
+      - [Claude Code Rules](/content/learn/extending-claude/adding-knowledge/rules.md)
+      - [Claude Code Skills](/content/learn/extending-claude/adding-knowledge/skills.md)
+    - 실행 제어
+      - [Claude Code Custom Agent](/content/learn/extending-claude/execution-control/custom-agent.md)
+      - [Claude Code Hooks](/content/learn/extending-claude/execution-control/hooks.md)
+    - 외부 연결
+      - [Claude Code Custom MCP 서버 만들기](/content/learn/extending-claude/external-connection/building-mcp-server.md)
+      - [Claude Code CLI 연결](/content/learn/extending-claude/external-connection/cli-connection.md)
+      - [Claude Code MCP 연결](/content/learn/extending-claude/external-connection/mcp-connection.md)
+      - [Claude Code CLI·MCP](/content/learn/extending-claude/external-connection/tools-and-skills.md)
+    - 계획 및 작업
+      - [Claude Code 성공 기준과 TDD](/content/learn/extending-claude/plan-task/red-green-refactor.md)
+      - [Claude Code Task 시스템](/content/learn/extending-claude/plan-task/task-basics.md)
+      - [Claude Code 테스트 기반 검증](/content/learn/extending-claude/plan-task/test-based-verification.md)
+      - [Claude Code 프롬프트 작성, What vs How](/content/learn/extending-claude/plan-task/what-vs-how.md)
+  - 참고 자료
+    - [Claude Code 토큰 소진 시 Copilot CLI 로 이어가기](/content/learn/references/copilot-cli-fallback.md)
+    - [Claude Code 링크 모음](/content/learn/references/links.md)
+    - [Claude Code Skill 개선과 Eval](/content/learn/references/skill-improvement-eval.md)
+  - 대화 시작
+    - [Claude Code Part 1 정리](/content/learn/starting-conversations/wrap-up.md)
+    - 컨텍스트 관리
+      - [CLAUDE.md](/content/learn/starting-conversations/context-management/claude-md.md)
+      - [Claude Code Context Window](/content/learn/starting-conversations/context-management/context-window.md)
+      - [Claude Code Memory](/content/learn/starting-conversations/context-management/memory.md)
+      - [Claude Code Task Sizing](/content/learn/starting-conversations/context-management/task-sizing.md)
+    - 시작하기
+      - [Claude Code 세션과 권한 모드](/content/learn/starting-conversations/getting-started/daily-flow.md)
+      - [Claude와 첫 대화](/content/learn/starting-conversations/getting-started/first-conversation.md)
+      - [Claude Code 설치와 실행](/content/learn/starting-conversations/getting-started/setup-and-first-run.md)
+    - LLM 기초
+      - [Claude Code Agentic Coding](/content/learn/starting-conversations/llm-basics/agentic-coding-and-claude-code.md)
+      - [Claude Code LLM 기초](/content/learn/starting-conversations/llm-basics/llm-fundamentals.md)
+      - [Claude Code Tool Use & Agent](/content/learn/starting-conversations/llm-basics/tool-use-and-agent.md)
+    - Todo 앱
+      - [Claude Code Plan Mode](/content/learn/starting-conversations/todo-app/plan-mode.md)
+      - [Claude Code 요구사항·기술 스택](/content/learn/starting-conversations/todo-app/requirements.md)
+      - [Claude Code Todo 앱 만들기](/content/learn/starting-conversations/todo-app/todo-implementation.md)
