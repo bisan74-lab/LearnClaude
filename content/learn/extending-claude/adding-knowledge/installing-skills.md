@@ -134,15 +134,15 @@ bunx skills add https://github.com/shadcn-ui/ui --skill shadcn
 
 명령을 실행하면 설치 대상을 고르는 화면이 열립니다. `Universal (.agents/skills)` 항목은 항상 포함되는 공통 위치입니다. 아래 `Additional agents` 영역에서 `Claude Code (.claude/skills)` 를 스페이스바로 체크한 뒤 Enter를 누릅니다.
 
-![Claude Code 에이전트를 선택하는 skills.sh 설치 화면](images/shadcn-skill-agent-select.0yyo1-0fs4ucq.png)
+![Claude Code 에이전트를 선택하는 skills.sh 설치 화면](https://bisan74-lab.github.io/LearnClaude/images/shadcn-skill-agent-select.0yyo1-0fs4ucq.png)
 
 다음 화면에서 설치 범위는 `Project` 를 선택합니다. 현재 프로젝트의 Skill 폴더에 설치되어 이 레슨 실습 안에서만 사용할 수 있습니다.
 
-![Project 설치 범위를 선택하는 skills.sh 설치 화면](images/shadcn-skill-project-scope.0vwnp3zw08tc5.png)
+![Project 설치 범위를 선택하는 skills.sh 설치 화면](https://bisan74-lab.github.io/LearnClaude/images/shadcn-skill-project-scope.0vwnp3zw08tc5.png)
 
 설치 방법은 `Copy to all agents` 를 선택합니다. `Symlink` 는 여러 에이전트가 같은 Skill 본체를 공유할 때 편리해서 추천값으로 표시됩니다. 이번 실습에서는 설치 결과를 프로젝트 안에서 바로 확인하려고 `Copy to all agents` 를 사용합니다.
 
-![Copy to all agents 설치 방법을 선택하는 skills.sh 설치 화면](images/shadcn-skill-copy-method.33ga93xcz3697.png)
+![Copy to all agents 설치 방법을 선택하는 skills.sh 설치 화면](https://bisan74-lab.github.io/LearnClaude/images/shadcn-skill-copy-method.33ga93xcz3697.png)
 
 설치가 끝나면 Claude Code용 복사본이 `.claude/skills/shadcn/` 에 생기고, `skills-lock.json` 에 설치 출처와 해시가 기록됩니다.
 

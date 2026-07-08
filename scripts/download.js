@@ -7,6 +7,12 @@ const cheerio = require('cheerio');
 const TurndownService = require('turndown');
 
 const BASE = 'https://docs.claude-hunt.com';
+// The published site's own origin (see index.html / GitHub Pages). Image links must
+// be fully-qualified: Docsify's core rewrites any relative or root-relative path by
+// prepending its detected base path, and does so a second time in a later pass,
+// which double-counts the /LearnClaude/ project subpath. A URL containing "://" is
+// left untouched by that rewrite, so it's the only reliable option here.
+const SITE_ORIGIN = 'https://bisan74-lab.github.io/LearnClaude';
 const SITEMAP_URL = `${BASE}/sitemap.xml`;
 const CONTENT_DIR = path.join(__dirname, '..', 'content');
 const IMAGES_DIR = path.join(__dirname, '..', 'images');
@@ -108,11 +114,7 @@ async function processPage(url) {
   // so relative asset paths always resolve against the shell's location, not the
   // fetched markdown file's virtual path. A plain "images/x.png" (sibling of
   // index.html) works from every page; a computed "../../images/x.png" does not.
-  // Plain relative "images/x.png" (no leading slash) resolves against the actual
-  // document location (index.html), which the browser correctly reports as
-  // /LearnClaude/ on GitHub Pages. A leading slash instead gets Docsify's own
-  // base-path prepended on top, which double-counts the project subpath.
-  const imagePrefix = 'images/';
+  const imagePrefix = `${SITE_ORIGIN}/images/`;
   const imgs = main.find('img').toArray();
   for (const img of imgs) {
     const src = $(img).attr('src');
