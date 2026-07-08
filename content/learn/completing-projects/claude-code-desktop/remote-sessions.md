@@ -33,7 +33,7 @@ Cloud 세션은 내 컴퓨터를 원격 조종하는 기능이 아닙니다. Git
 
 새 세션을 만들 때 Environment를 Cloud로 고르고, [Part 2에서 배포한 내 저장소](/learn/extending-claude/deploy-todo)와 `main` 브랜치를 선택합니다.
 
-![세션 실행 환경을 고르는 드롭다운 (Local·Cloud·Remote Control·SSH)](images/cloud-session-picker.3x2f0ywh1eidf.png)
+![세션 실행 환경을 고르는 드롭다운 (Local·Cloud·Remote Control·SSH)](/LearnClaude/images/cloud-session-picker.3x2f0ywh1eidf.png)
 
 GitHub이 아직 Cloud에 연결되지 않았다면, 이때 연결 안내가 뜹니다. Claude GitHub App을 설치하고 저장소 접근을 허용하면 연결이 끝납니다. 처음 한 번만 하면 됩니다.
 
@@ -52,7 +52,7 @@ README.md를 현재 프로젝트에 맞게 최신화해줘.
 
 PR이 만들어지면 세션 하단에 PR 상태 바가 나타납니다. PR 번호, 브랜치, 변경 규모(`+20 -2`)와 CI 검사 상태를 세션을 벗어나지 않고 바로 봅니다. `gh`가 설치·인증돼 있어야 동작합니다 ([사전 준비사항](/learn/prerequisites) 6번 항목).
 
-![PR이 생성되면 세션 하단에 나타나는 PR 상태 바](images/pr-status-bar.0o4wsg4ibcy_s.png)
+![PR이 생성되면 세션 하단에 나타나는 PR 상태 바](/LearnClaude/images/pr-status-bar.0o4wsg4ibcy_s.png)
 
 여기서 GitHub으로 넘어가 PR을 엽니다. README diff를 보고 프로젝트 이름, 실행 방법, 테스트 명령이 현재 프로젝트와 맞는지 확인합니다.
 

@@ -32,11 +32,11 @@ Copy MarkdownOpen
 
 [harness-engineering-template](https://github.com/toy-crane/harness-engineering-template)에 접속한 뒤, ① Use this template 버튼을 클릭하고, ② 드롭다운에서 Create a new repository를 선택합니다.
 
-![GitHub 템플릿 저장소의 Use this template 버튼](images/harness-use-template.3t_a8p9kiw_qz.png)
+![GitHub 템플릿 저장소의 Use this template 버튼](/LearnClaude/images/harness-use-template.3t_a8p9kiw_qz.png)
 
 다음 화면에서 저장소 이름을 입력한 뒤 생성합니다. 본인이 만들 프로젝트 이름을 그대로 쓰면 좋습니다.
 
-![GitHub Create a new repository 화면](images/harness-create-repo.0c_msytdewrrh.png)
+![GitHub Create a new repository 화면](/LearnClaude/images/harness-create-repo.0c_msytdewrrh.png)
 
 feedme 저장소와 분리하세요
 
@@ -46,7 +46,7 @@ feedme 저장소와 분리하세요
 
 방금 만든 저장소 화면에서 ① Code 버튼을 클릭하고, ② HTTPS 탭을 연 뒤, ③ URL을 복사합니다.
 
-![GitHub 저장소의 Code 버튼에서 HTTPS URL 복사하는 3단계](images/harness-clone-repo.0aozy7nx4je48.png)
+![GitHub 저장소의 Code 버튼에서 HTTPS URL 복사하는 3단계](/LearnClaude/images/harness-clone-repo.0aozy7nx4je48.png)
 
 복사한 URL로 저장소를 클론하고 의존성을 설치합니다.
 
@@ -63,21 +63,21 @@ bun dev
 
 Vercel 대시보드에서 ① Add New... 드롭다운을 열고, ② Project를 클릭합니다.
 
-![Vercel 대시보드의 Add New Project 버튼](images/harness-vercel-add-project.2oz_bdw8asohh.png)
+![Vercel 대시보드의 Add New Project 버튼](/LearnClaude/images/harness-vercel-add-project.2oz_bdw8asohh.png)
 
 ① Search 박스에 저장소 이름을 입력해 방금 만든 저장소를 찾고, ② 옆의 Import 버튼을 클릭합니다.
 
-![Vercel GitHub 저장소 Import 화면](images/harness-vercel-import-repo.2kjcb8rihxi9d.png)
+![Vercel GitHub 저장소 Import 화면](/LearnClaude/images/harness-vercel-import-repo.2kjcb8rihxi9d.png)
 
 다음 화면에서 Framework는 Next.js로 자동 감지됩니다. Environment Variables는 비워둔 채 ① Deploy 버튼을 클릭합니다. 외부 API 키 등록은 다음 레슨 [practice의 배포 시 환경 변수 설정](/learn/completing-projects/personal-project/practice#env-vars)에서 다룹니다.
 
-![Vercel New Project 화면에서 Deploy 버튼 위치](images/harness-vercel-new-project.1-u6tza00o4_r.png)
+![Vercel New Project 화면에서 Deploy 버튼 위치](/LearnClaude/images/harness-vercel-new-project.1-u6tza00o4_r.png)
 
 ## [Step 4: 첫 배포 URL에서 같은 화면 확인하기](#step-4-첫-배포-url에서-같은-화면-확인하기)
 
 빌드가 끝나면 본인 프로젝트 이름이 들어간 `.vercel.app` URL이 생깁니다.
 
-![Vercel 배포 완료 후 생성된 .vercel.app 도메인 화면](images/harness-vercel-deployed.2_22ql7pdxvny.png)
+![Vercel 배포 완료 후 생성된 .vercel.app 도메인 화면](/LearnClaude/images/harness-vercel-deployed.2_22ql7pdxvny.png)
 
 URL을 클릭해 로컬과 같은 화면이 뜨는지 확인합니다.
 
@@ -87,7 +87,7 @@ URL을 클릭해 로컬과 같은 화면이 뜨는지 확인합니다.
 
 [ui.shadcn.com/create](https://ui.shadcn.com/create)에 접속해 원하는 스타일을 고른 뒤, 사이드바의 ① preset ID 영역을 클릭합니다. `--preset {preset_id}` 같은 형식의 ID가 클립보드에 복사됩니다.
 
-![shadcn 공식 사이트의 preset 스타일 목록](images/shadcn-create-presets.2yfjj25sro464.png)
+![shadcn 공식 사이트의 preset 스타일 목록](/LearnClaude/images/shadcn-create-presets.2yfjj25sro464.png)
 
 복사한 ID를 Claude Code에 그대로 붙여 넣어 적용합니다.
 

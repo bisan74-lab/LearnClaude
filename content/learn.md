@@ -16,7 +16,7 @@ Copy MarkdownOpen
 
 ## [강사 소개](#강사-소개)
 
-![강사 프로필 사진](images/profile.0hyw7p20-800p.png)
+![강사 프로필 사진](/LearnClaude/images/profile.0hyw7p20-800p.png)
 
 김한울 (Toy Crane). Product Maker이자 Full-stack 개발자입니다. 인프런, 패스트캠퍼스, 스파르타 코딩클럽에서 개발 강의를 해왔고, 현재는 Claude Code로 AI 기반 프로덕트(디어리, 파크골프 가자)를 직접 만들고 운영합니다. 직접 프로덕트를 만들며 몸으로 익힌 실전 워크플로우를 이 강의에 담았습니다.
 
@@ -62,7 +62,7 @@ Copy MarkdownOpen
 
 ### [1\. feedme.wiki 클론](#1-feedmewiki-클론)
 
-![feedme.wiki 미리보기](images/feedme-preview.2rj0-scojew6v.png)
+![feedme.wiki 미리보기](/LearnClaude/images/feedme-preview.2rj0-scojew6v.png)
 
 [feedme.wiki](https://www.feedme.wiki/)는 아무 URL이나 붙여 넣으면 본문을 Markdown으로 변환하는 서비스입니다. 요약·한국어 번역·쉬운 설명 같은 프롬프트를 바로 얹을 수 있어, 웹 콘텐츠를 LLM에게 넘기기 좋은 형태로 정리합니다.
 

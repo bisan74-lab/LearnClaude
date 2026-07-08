@@ -28,7 +28,7 @@ Copy MarkdownOpen
 
 ## [Claude가 모르는 것이 너무 많다](#claude가-모르는-것이-너무-많다)
 
-![Claude 학습 데이터 안과 실시간 정보 사이의 공백](images/knowledge-cutoff-gap.3k2z89ydhw1am.png)
+![Claude 학습 데이터 안과 실시간 정보 사이의 공백](/LearnClaude/images/knowledge-cutoff-gap.3k2z89ydhw1am.png)
 
 Claude에게 실시간 정보를 물어보면 벽에 부딪힙니다.
 
