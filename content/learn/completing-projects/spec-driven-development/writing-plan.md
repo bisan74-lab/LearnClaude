@@ -1,0 +1,300 @@
+# Claude Code Plan | 제대로 배우기
+
+Part 3 · 프로젝트 완성하기Chapter 10 · 스펙 주도 개발
+
+# 실행 단위로 쪼개기 | Plan
+
+/draft-plan으로 spec과 wireframe을 Vertical Task로 쪼개고 plan-reviewer로 검증합니다
+
+Copy MarkdownOpen
+
+마지막 업데이트: 2026\. 7. 6.
+
+## [Overview](#overview)
+
+spec.md와 wireframe.html이 "무엇을·어떻게 보이는가"를 정했다면, plan은 어떤 순서로·어떤 단위로·어떻게 검증하며 만들지를 정합니다. `/draft-plan`이 두 문서를 입력으로 받아 Task 단위 plan.md를 생성합니다.
+
+사용자는 고비용 결정 답변 → plan-reviewer 피드백 반영 → 완성된 plan 검토, 세 지점에서만 결정합니다. 나머지(코드베이스·스킬 탐색, Task 분해, 검증 방법 매칭)는 AI가 처리합니다.
+
+### [학습 목표](#학습-목표)
+
+*   고비용 결정 답변·plan-reviewer 피드백 반영·완성된 plan 검토, 세 가지 사용자 참여 지점을 구별합니다
+*   plan-reviewer의 4축 보고 중 어느 피드백을 plan에 반영할지 가릅니다
+*   Coverage · Vertical Slicing · 검증 방법 · fail-fast 순서 4가지로 plan.md를 검토합니다
+
+## [Step 1: spec.md·wireframe.html 입력으로 호출하기](#step-1-specmdwireframehtml-입력으로-호출하기)
+
+```
+/draft-plan feedme
+```
+
+AI가 두 문서를 읽고, 곧장 Task를 쪼개지 않습니다. 두 가지를 먼저 검토합니다.
+
+검토 대상
+
+무엇을 확인하는가
+
+코드베이스
+
+아키텍처, 영향받을 파일, 의존성, 유사 기능: 위험을 미리 기록
+
+`.claude/skills/` 디렉터리
+
+이번 feature와 관련된 모든 스킬. 빠진 스킬 때문에 plan이 프로젝트 규약과 어긋나는 게 더 비싸므로, 판단이 어려우면 포함
+
+이 단계가 끝나면 AI는 어떤 스킬과 코드 영역을 plan에 반영할지 파악합니다.
+
+## [Step 2: 변경 비용 높은 결정에 답하기](#step-2-변경-비용-높은-결정에-답하기)
+
+[spec 작성](/learn/completing-projects/spec-driven-development/writing-spec) 단계의 질문이 "무엇을"에 대한 것이었다면, plan 단계의 질문은 "어떻게 만들지"를 묻습니다. 같은 변경 비용 원리에 따라 나중에 바꾸기 비싼 결정만 묻습니다.
+
+변경 비용이 높다는 말은 한 번 정하고 나면 의존하는 코드를 전반적으로 다시 고쳐야 한다는 뜻입니다. plan 단계에서는 상태 관리 라이브러리·인증 방식·데이터 모델 같은 골격이 여기에 들어갑니다. 반대로 변수명·기본값·문구처럼 한 곳만 고치면 끝나는 결정은 변경 비용이 낮으므로 묻지 않고 기본값을 제안합니다.
+
+```
+상태 관리를 어떻게 하시겠습니까?
+1. useState + Context (작은 규모, 의존성 없음)
+2. Zustand (중간 규모, 미들웨어 지원)
+3. Jotai (원자적 상태 관리)
+```
+
+한 번에 하나씩, 2~4 선택지를 제시합니다. 이미 코드베이스에 답이 있는 결정은 묻지 않습니다. Step 1 탐색 결과가 그 답을 채우기 때문입니다.
+
+## [Step 3: Vertical Slicing으로 Task 쪼개기](#step-3-vertical-slicing으로-task-쪼개기)
+
+질문에 답하면 AI가 `artifacts/feedme/plan.md`를 생성합니다. 가장 중요한 원칙은 Vertical Slicing, 곧 각 Task가 end-to-end로 동작하는 한 단위가 되게 쪼개는 것입니다.
+
+UI
+
+Logic
+
+Data
+
+T1
+
+UI
+
+Logic
+
+Data
+
+T2
+
+UI
+
+Logic
+
+Data
+
+T3
+
+UI
+
+Logic
+
+Data
+
+T4
+
+각 Task가 끝나면 기능이 실제로 살아있다
+
+Task 1: UI 전체
+
+Task 2: 로직 전체
+
+Task 3: 데이터 전체
+
+통합 시점에 회귀가 한꺼번에 터진다
+
+Vertical은 매 Task가 살아있고, Horizontal은 통합 시점에 한꺼번에 터집니다
+
+방식
+
+의미
+
+결과
+
+**Vertical (✅)**
+
+한 Task가 UI + 로직 + 데이터까지 한 기능을 끝냅니다.
+
+Task가 끝나면 기능이 실제로 살아있습니다.
+
+**Horizontal (❌)**
+
+Task 1=DB만, Task 2=API만, Task 3=UI만
+
+통합 시점에 회귀가 한꺼번에 드러납니다
+
+feedme.wiki의 Task 분해를 비교해 봅니다.
+
+```
+OK (Vertical):
+Task 1: URL 입력 → Markdown 변환 → 결과 표시 (입력 컴포넌트 + 변환 로직 + 결과 영역)
+Task 2: 결과 복사 / .md 다운로드 (액션 버튼 + 핸들러)
+Task 3: 외부 LLM 열기 + 프롬프트 프리셋 (모달 + 프리셋 UI + URL 조립)
+Task 4: 다크모드 토글 (UI 토글 + CSS 변수 갱신)
+
+NG (Horizontal):
+Task 1: 모든 컴포넌트 시각 구조
+Task 2: 모든 비즈니스 로직
+Task 3: 모든 외부 연결
+```
+
+### [수용 기준을 검증 방법으로 적기](#수용-기준을-검증-방법으로-적기)
+
+각 Task에는 spec의 성공 기준에서 파생된 수용 기준이 있고, 수용 기준마다 검증 방법이 함께 적힙니다. 검증 방법은 가장 낮은 증명 경계를 선택합니다.
+
+증명 가능한 곳
+
+사용 도구
+
+코드 (DOM, 함수, DB)
+
+Vitest / `bun run build`
+
+실제 브라우저, CI 반복
+
+Playwright
+
+실제 브라우저, 일회성 증거
+
+Chrome DevTools MCP
+
+자동화 불가능 (디자인, 느낌)
+
+Human review: 리뷰어·기준 명시
+
+**검증 방법까지 plan에 함께 적힌다는 점이 핵심입니다.** 구현 단계에서 검증 방법을 다시 고민하지 않아도 됩니다.
+
+## [Step 4: plan-reviewer로 4축 검증하기](#step-4-plan-reviewer로-4축-검증하기)
+
+plan.md가 생성되면 `plan-reviewer` 에이전트가 별도 컨텍스트에서 spec ↔ plan ↔ wireframe 정합성을 검토합니다.
+
+검증 축
+
+무엇을 보는가
+
+**Coverage**
+
+spec의 모든 시나리오·성공 기준이 plan의 어느 Task에든 매핑되는가
+
+**plan 내부 정합성**
+
+Task 간 의존성·순서가 어긋나지 않는가
+
+**wireframe 일관성**
+
+wireframe의 컴포넌트가 plan의 Task에 반영되었는가
+
+**불변 규칙 커버리지**
+
+spec의 불변 규칙(보안·성능·데이터 일관성)이 Task의 검증 방법에 들어가 있는가
+
+plan-reviewer가 4축별로 결과를 보고하면, 사용자는 어느 피드백을 plan.md에 반영할지 결정합니다. 모든 피드백을 수용할 필요는 없습니다. spec 범위를 벗어나는 피드백이면 거부 근거만 남깁니다.
+
+## [Required Skills와 Task Ordering 살펴보기](#required-skills와-task-ordering-살펴보기)
+
+plan.md의 본문을 읽다 보면 Task 목록 외에 두 가지가 plan을 안정적으로 유지합니다.
+
+### [Required Skills](#required-skills)
+
+Step 1에서 AI가 `.claude/skills/`를 스캔하며 모은 **이번 feature와 관련된 스킬 목록**입니다. plan.md 상단에 "이 plan을 실행할 때 로드되는 스킬"로 기록됩니다. 템플릿은 라이브러리·프레임워크 best practices를 담은 reference skill 4종을 기본으로 제공하며, feature에 해당하는 skill만 골라 plan에 넣습니다.
+
+Skill
+
+책임 영역
+
+`next-best-practices`
+
+Next.js App Router · RSC 경계 · 메타데이터 · 라우트 핸들러
+
+`vercel-react-best-practices`
+
+React 합성 패턴 · 성능 최적화
+
+`web-design-guidelines`
+
+접근성 · 반응형 · UX
+
+`shadcn`
+
+shadcn 컴포넌트 추가 / 관리
+
+이게 왜 중요한가요? Build 단계에서 어떤 스킬이 자동으로 로드되는지를 plan 단계에서 미리 확인할 수 있기 때문입니다. 학습자는 이 plan대로 만들면 어떤 규약이 적용되는지 미리 알 수 있습니다. 누락된 스킬이 보이면 추가를 요청합니다.
+
+### [Task Ordering](#task-ordering)
+
+Task 순서는 회귀 비용을 결정합니다. plan.md는 다음 원칙으로 Task 순서를 잡습니다.
+
+원칙
+
+의미
+
+테스트 파일 먼저
+
+spec의 수용 기준을 테스트로 먼저 작성하면, 이후 구현이 그 기준을 향해 진행됩니다
+
+의존성 적은 것 먼저
+
+다른 Task가 의존하는 기반 Task를 앞에 둡니다
+
+**고위험 Task 앞으로 (fail-fast)**
+
+실패가 일찍 드러날수록 sunk cost가 줄고 plan을 재조정하기 쉽습니다
+
+각 Task는 시스템을 동작 가능 상태로
+
+한 Task가 끝나면 빌드와 테스트가 통과해야 합니다
+
+2~3 Task마다 Checkpoint
+
+누적 실패가 끝에서 한꺼번에 드러나는 것을 막습니다
+
+"의존성 적은 것 먼저"의 구체적 형태는 CLAUDE.md에 아키텍처 레이어 순서로 정의해 두었습니다: `types → config → lib → services → hooks → components → app`. 아래쪽 레이어가 먼저, 위쪽 레이어가 나중에 옵니다. plan-reviewer는 이 순서를 위반한 Task 배치(예: components가 lib보다 앞에 오는 경우)를 자동으로 짚어줍니다.
+
+학습자가 plan을 검토할 때 "왜 이 Task가 먼저인가?"를 떠올리면 됩니다. fail-fast 위반(고위험을 뒤로 미룬 plan)이 보이면 순서 조정을 요청합니다.
+
+## [Plan 검토하기](#plan-검토하기)
+
+plan.md를 사용자가 한 번 검토합니다. 4가지만 봅니다.
+
+1.  spec의 모든 시나리오가 어느 Task에든 매핑되어 있는가? plan-reviewer의 Coverage 결과와 같이 봅니다.
+2.  각 Task가 vertical slice인가? 제목에 "and"가 들어 있거나 여러 layer에 걸쳐 있으면 쪼개기를 요청합니다.
+3.  수용 기준에 검증 방법이 함께 적혀 있는가? 검증 방법이 비어 있으면 Build 단계에서 다시 고민하게 됩니다.
+4.  Task 순서가 fail-fast인가? 가장 위험한 Task가 뒤에 밀려 있으면 앞으로 옮기기를 요청합니다.
+
+## [핵심 포인트 정리](#핵심-포인트-정리)
+
+1.  **spec + wireframe → Task 단위 plan**: /draft-plan이 두 문서를 입력으로 받아 실행 단위로 분해합니다. 코드베이스와 관련 스킬을 먼저 검토해야 분해가 시작됩니다.
+2.  **Vertical Slicing**: 한 Task가 끝나면 기능이 살아있어야 합니다. Horizontal로 쪼개면 통합 시점에 회귀가 한꺼번에 드러납니다.
+3.  **검증 방법**: 수용 기준마다 가장 낮은 증명 경계(Vitest / Playwright / Chrome DevTools MCP / Human review)를 선택합니다.
+4.  **Required Skills와 Task Ordering**: 어떤 규약을 따라 어떤 순서로 만들지가 plan 단계에서 결정됩니다.
+
+## [FAQ](#faq)
+
+### 내장 Plan Mode로 spec과 wireframe을 직접 참조하면 되지 않나요?
+
+### plan-reviewer가 보고한 피드백을 모두 수용해야 하나요?
+
+## [이어서 배울 내용](#이어서-배울-내용)
+
+plan.md를 확정했습니다. 이어지는 [Build](/learn/completing-projects/spec-driven-development/implementing)에서는 Plan의 Task를 구현하고, code-reviewer로 검증한 뒤, learnings.md에 기록합니다.
+
+피드백 남기기
+
+[
+
+레이아웃을 확정하기 | Sketch
+
+/sketch-wireframe 3단계로 기본 레이아웃과 시나리오별 화면을 한 wireframe.html에서 비교합니다
+
+](/learn/completing-projects/spec-driven-development/sketching-wireframe)[
+
+한 Task씩 구현하기 | Build
+
+/execute-plan이 TDD 구현·code-reviewer 리뷰·learnings.md 기록을 한 사이클로 묶습니다
+
+](/learn/completing-projects/spec-driven-development/implementing)
+
+---
+Source: https://docs.claude-hunt.com/learn/completing-projects/spec-driven-development/writing-plan

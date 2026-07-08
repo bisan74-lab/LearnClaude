@@ -1,0 +1,236 @@
+# Claude Code Build | 제대로 배우기
+
+Part 3 · 프로젝트 완성하기Chapter 10 · 스펙 주도 개발
+
+# 한 Task씩 구현하기 | Build
+
+/execute-plan이 TDD 구현·code-reviewer 리뷰·learnings.md 기록을 한 사이클로 묶습니다
+
+Copy MarkdownOpen
+
+마지막 업데이트: 2026\. 7. 6.
+
+## [Overview](#overview)
+
+앞 레슨에서 확정한 plan을 실제 코드로 옮길 차례입니다. `/execute-plan`이 TDD 구현·리뷰·결과 검토를 한 호출에 묶어 진행하고, 사용자는 세 지점의 결정에만 개입합니다.
+
+### [학습 목표](#학습-목표)
+
+*   결정 위임 응답·중요 발견사항 처리·머지 결정, 세 가지 사용자 참여 지점을 구별합니다.
+*   TDD가 적용되는 영역(외부에서 관찰할 수 있는 동작)과 Human review로 남기는 영역(디자인·느낌)의 경계를 파악합니다.
+*   수용 기준 통과·빌드 통과·치명 발견사항 처리·중요 발견사항 결정 4가지로 Build 결과를 검토합니다.
+
+## [Step 1: plan.md 입력으로 호출하기](#step-1-planmd-입력으로-호출하기)
+
+```
+/execute-plan feedme
+```
+
+AI가 plan.md를 읽고 Task 의존성을 분석해 실행 순서를 결정합니다. 사용자는 결과만 확인하면 됩니다.
+
+검토 대상
+
+무엇을 확인하는가
+
+Task 의존성
+
+공유 파일·import 관계·데이터 흐름
+
+Required Skills
+
+plan에 나열된 각 SKILL.md를 미리 로드해 구현 중 규약을 일관되게 적용
+
+순서가 정해지면 그 근거가 learnings.md에 기록되고 다음 단계로 갑니다.
+
+## [Step 2: Task 순서대로 TDD 구현하기](#step-2-task-순서대로-tdd-구현하기)
+
+각 Task를 한 번에 하나씩 구현합니다. **핵심은 수용 기준이 곧 RED → GREEN 사이클의 입력이 된다는 점입니다.** 무엇을 테스트로 표현할지의 분류 기준은 CLAUDE.md의 테스팅 원칙에 나와 있습니다. 외부에서 관찰할 수 있는 동작은 가장 낮은 증명 경계에서 검증을 자동화하고, 디자인·접근성처럼 자동화 비용이 높은 영역은 Human review로 남깁니다.
+
+```
+1. 수용 기준 읽기: "URL 입력 후 변환 버튼 클릭 → 5초 이내 Markdown이 결과 영역에 표시"
+2. RED: 그 기준을 검증하는 테스트를 먼저 작성. 테스트는 실패한다.
+3. GREEN: 기준을 충족하는 최소 코드 구현. 테스트가 통과한다.
+4. bun run build + 영향받은 테스트 실행
+5. Task당 conventional commit 1개
+6. plan.md에서 Task를 완료로 표시
+```
+
+### [TDD 적용 범위](#tdd-적용-범위)
+
+수용 기준을 모두 테스트로 표현하지는 않습니다. 코드로 증명 가능한 부분만 TDD로 가고, 디자인 판단·시각 검증은 Human review로 남깁니다.
+
+수용 기준 유형
+
+TDD 적용
+
+외부에서 관찰할 수 있는 동작 (텍스트, 요소 개수, 시각 상태)
+
+✅ Vitest / Playwright
+
+API 응답 형태·라우팅·상태 변화
+
+✅ Vitest
+
+디자인 판단 (간격, 색감, 타이포 균형)
+
+❌ Human review
+
+스크린 리더·접근성 느낌
+
+❌ Human review
+
+### [Hook의 코드 스타일 자동 정리](#hook의-코드-스타일-자동-정리)
+
+`PostToolUse` Hook(`lint-fix.sh`)이 파일을 수정할 때마다 자동으로 ESLint를 돌립니다. AI가 인덴트나 import 정렬을 빠뜨려도 사용자가 손댈 필요가 없습니다.
+
+### [Rule의 영역 가드](#rule의-영역-가드)
+
+`shadcn-guard` Rule이 `components/ui/*` 직접 수정을 막습니다. 업그레이드할 때 충돌이나 업스트림 패치 손실을 막으려고, shadcn 컴포넌트는 `bunx shadcn add`로 추가하거나, 커스텀이 필요하면 wrapper로 감싸야 합니다. Rule은 해당 경로에서 작업할 때만 활성화되므로 평소에는 컨텍스트 비용이 들지 않습니다.
+
+### [실패 시 우회 금지](#실패-시-우회-금지)
+
+빌드나 테스트가 실패하면 근본 원인을 찾습니다. 빌드를 건너뛰거나 테스트를 끄거나 에러를 숨기는 우회는 기술 부채를 잠깐 가릴 뿐이기 때문입니다.
+
+## [Step 3: code-reviewer로 5차원 리뷰하기](#step-3-code-reviewer로-5차원-리뷰하기)
+
+모든 Task 구현이 끝나면 `code-reviewer` 에이전트가 별도 컨텍스트에서 변경 사항을 5차원으로 평가합니다.
+
+차원
+
+무엇을 보는가
+
+**정확성**
+
+spec/task가 명시한 동작을 코드가 실제로 수행하는가? 엣지 케이스(null, 빈 값, 경계값)가 처리되는가?
+
+**가독성**
+
+다른 엔지니어가 설명 없이 이해할 수 있는가? 이름이 서술적인가?
+
+**아키텍처**
+
+기존 패턴을 따르는가? 모듈 경계가 유지되는가? 순환 의존이 없는가?
+
+**보안**
+
+PII 노출, 권한 우회, 인증 누락 같은 취약점이 없는가?
+
+**성능**
+
+명백한 비효율이 있는가 (불필요한 리렌더, N+1 쿼리, 메모리 누수)?
+
+리뷰어는 발견 사항을 세 가지로 분류해 보고합니다.
+
+분류
+
+기준
+
+처리
+
+**Critical(치명)**
+
+머지하면 사용자/시스템에 즉각 손해 (PII 노출, 보안 취약점, 데이터 손실)
+
+직접 수정 + 영향 테스트 재실행
+
+**Important(중요)**
+
+동작은 하지만 다음 작업 비용을 늘림 (유지보수 부담, 중복)
+
+직접 수정 (spec 범위 밖이면 기각 + 근거 기록)
+
+**Suggestion(제안)**
+
+가독성·취향, 동작·유지보수 영향 없음 (변수명, 미세 리팩터링)
+
+Step 4 보고에만 언급, 반영은 선택적
+
+판정 결과를 learnings.md에 기록합니다.
+
+## [Step 4: Human Review로 결과 검토하기](#step-4-human-review로-결과-검토하기)
+
+모든 Task와 리뷰가 끝나면 사용자는 다음 요약을 받습니다.
+
+```
+- Task별 수용 기준 통과 여부 (pass / partial / fail)
+- bun run build + 테스트 결과
+- code-reviewer 발견 사항 (Critical / Important / Suggestion 별)
+- learnings.md에 기록된 판단: Task 재정렬·피드백 기각·접근 전환 등
+```
+
+이 요약을 받으면 다음 4가지를 확인하고 머지를 결정합니다.
+
+1.  Task별 수용 기준이 모두 pass인가? partial/fail이 있으면 머지를 보류하고 원인을 다시 확인합니다.
+2.  `bun run build`와 테스트가 통과했는가? 통과 여부는 위 요약에 함께 표시됩니다.
+3.  Critical 발견 사항이 모두 처리되었는가? 처리 후 영향 테스트 재실행까지 끝나야 합니다.
+4.  Important 발견 사항이 모두 결정되었는가? 수용·기각 둘 다 가능하며, 기각이라면 근거를 learnings.md에 남깁니다.
+
+### [사이클 전체에서 사용자 결정점](#사이클-전체에서-사용자-결정점)
+
+/execute-plan은 한 번 호출하면 끝까지 진행하지만, 사용자가 결정해야 하는 순간이 네 가지 있습니다.
+
+상황
+
+사용자 결정
+
+Task가 plan과 다른 순서로 가는 게 합리적 (예: Task 3이 Task 1 출력에 의존)
+
+AI가 재정렬 제안 → 사용자 OK 후 진행. 근거를 learnings에 기록
+
+진행 중 사용자가 spec 범위 밖 요청을 추가 (예: "비밀번호 재설정도 해줘")
+
+AI가 기각 + 새 feature로 분리 제안. 사용자가 재고 후 결정
+
+빌드/테스트 실패가 반복되는데 근본 원인이 불명
+
+AI가 사용자에게 결정 위임. 함께 원인 진단
+
+code-reviewer의 Important 항목 처리
+
+사용자가 수용/기각 결정
+
+판단은 AI가 먼저 내리고, spec 범위·아키텍처처럼 되돌리기 어려운 결정만 사용자에게 위임합니다.
+
+### [learnings.md: 명백한 인사이트의 즉시 승격](#learningsmd-명백한-인사이트의-즉시-승격)
+
+구현 중 명백한 인사이트(예: 같은 에러를 두 번 만났을 때, plan에서 누락된 규약을 발견했을 때)는 그 자리에서 Skill·Hook·Rule·CLAUDE.md로 승격됩니다. `applied: rule`로 표시하고, 다음 사이클부터 그 규칙이 자동으로 쓰입니다.
+
+약한 신호(한 번만 보였거나, 패턴인지 불확실한 것)는 `applied: not-yet`으로 두고 누적합니다. 누적된 약한 신호를 도구로 승격하는 과정은 다음 챕터 Compound에서 다룹니다.
+
+## [핵심 포인트 정리](#핵심-포인트-정리)
+
+1.  수용 기준 주도 TDD: 코드로 증명할 수 있는 수용 기준은 RED → GREEN으로 자동화하고 디자인·접근성 느낌만 Human review로 남깁니다.
+2.  Task 단위 사이클: 한 Task 구현 → 빌드 → 테스트 → conventional commit → plan 갱신이 한 사이클이라, Vertical Slice가 끝날 때마다 시스템이 동작 가능 상태에 있습니다.
+3.  code-reviewer 5차원·3분류: 정확성·가독성·아키텍처·보안·성능을 보고 Critical/Important/Suggestion으로 분류해 분류별로 다르게 처리합니다.
+4.  비싼 판단만 사용자에게: 재정렬·기각·결정 위임 같은 비싼 판단만 사용자에게 올라오고 나머지는 AI가 처리합니다.
+
+## [FAQ](#faq)
+
+### 모든 수용 기준을 테스트로 표현해야 하나요?
+
+### code-reviewer의 Suggestion을 무시해도 되나요?
+
+### AI가 plan과 다른 순서로 진행하면 어떻게 알 수 있나요?
+
+## [이어서 배울 내용](#이어서-배울-내용)
+
+구현이 끝나고 push하면 Vercel 자동 배포까지 이어져 한 사이클이 끝납니다. 다음 레슨 Compound에서는 이번 사이클에서 모인 learnings를 다음 사이클의 도구(Skill·Hook·Rule·CLAUDE.md)로 승격하는 과정을 다룹니다.
+
+피드백 남기기
+
+[
+
+실행 단위로 쪼개기 | Plan
+
+/draft-plan으로 spec과 wireframe을 Vertical Task로 쪼개고 plan-reviewer로 검증합니다
+
+](/learn/completing-projects/spec-driven-development/writing-plan)[
+
+신호를 도구로 만들기 | Compound
+
+한 사이클에서 만난 강한 신호는 그 자리에서, 약한 신호는 여러 사이클에 걸쳐 쌓인 뒤 Skill·Hook·Rule·CLAUDE.md로 만들어집니다
+
+](/learn/completing-projects/spec-driven-development/compound)
+
+---
+Source: https://docs.claude-hunt.com/learn/completing-projects/spec-driven-development/implementing
