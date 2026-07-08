@@ -114,13 +114,13 @@ Anthropic 클라우드
 
 왼쪽 사이드바에서 Routines를 열고, 오른쪽 위 New routine에서 **Cloud**를 고릅니다.
 
-![Routines 페이지에서 New routine의 Local·Cloud 선택](../../../../images/routines-local-cloud.3jw_snl0o16ng.png)
+![Routines 페이지에서 New routine의 Local·Cloud 선택](images/routines-local-cloud.3jw_snl0o16ng.png)
 
 ### [Step 2: 프롬프트와 저장소, 스케줄 설정하기](#step-2-프롬프트와-저장소-스케줄-설정하기)
 
 새 루틴 폼에서 이름, 프롬프트, 저장소를 채우고 트리거로 Schedule을 고릅니다.
 
-![New routine 폼의 저장소·환경·모델·이름·Instructions·트리거](../../../../images/new-routine-form.3fsncpt5h6j22.png)
+![New routine 폼의 저장소·환경·모델·이름·Instructions·트리거](images/new-routine-form.3fsncpt5h6j22.png)
 
 화면의 번호를 따라 보면 이렇게 채웁니다.
 
@@ -143,7 +143,7 @@ Instructions에는 이렇게 적습니다.
 
 Create로 루틴을 저장하면 다음 스케줄 때 실행됩니다. 기다리지 않고 바로 확인하려면 루틴 상세 화면에서 Run now를 누릅니다.
 
-![저장된 루틴 상세 화면과 Run now 버튼](../../../../images/routine-detail-run-now.29z8m98ok93bf.png)
+![저장된 루틴 상세 화면과 Run now 버튼](images/routine-detail-run-now.29z8m98ok93bf.png)
 
 실행이 시작되면 세션 하나가 새로 열립니다. 이 세션에서 Claude가 한 일과 만든 PR을 [레슨 3에서 배운 방식](/learn/completing-projects/claude-code-desktop/remote-sessions)으로 검토합니다.
 

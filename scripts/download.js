@@ -104,7 +104,11 @@ async function processPage(url) {
 
   main.find('nav, aside, header, footer, script, style').remove();
 
-  const imagePrefix = computeImagePrefix(url);
+  // Docsify serves everything through the single index.html shell (hash routing),
+  // so relative asset paths always resolve against the shell's location, not the
+  // fetched markdown file's virtual path. A plain "images/x.png" (sibling of
+  // index.html) works from every page; a computed "../../images/x.png" does not.
+  const imagePrefix = 'images/';
   const imgs = main.find('img').toArray();
   for (const img of imgs) {
     const src = $(img).attr('src');
@@ -126,13 +130,6 @@ async function processPage(url) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, markdown, 'utf8');
   return filePath;
-}
-
-// Compute relative path prefix from a content markdown file back to the images/ dir.
-function computeImagePrefix(url) {
-  const filePath = urlToFilePath(url);
-  const relFromContent = path.relative(path.dirname(filePath), IMAGES_DIR);
-  return relFromContent.split(path.sep).join('/') + '/';
 }
 
 async function main() {

@@ -44,7 +44,7 @@ Copy MarkdownOpen
 
 이 명령으로 Agent View에 들어갑니다. 처음 들어가면 세션 목록이 비어 있고, 아래쪽에는 새 작업을 적을 입력창과 단축키 안내만 보입니다.
 
-![세션 목록이 비어 있는 Agent View 첫 진입 화면](../../../../images/agent-view-empty.0w5btaxh_gjsu.png)
+![세션 목록이 비어 있는 Agent View 첫 진입 화면](images/agent-view-empty.0w5btaxh_gjsu.png)
 
 상단 헤더에는 Claude Code 버전, 모델, 작업 디렉토리, 세션 카운트가 보입니다. `Esc`를 누르면 터미널로 돌아갑니다. 빠져나가도 백그라운드 세션은 계속 돌아갑니다.
 
@@ -126,7 +126,7 @@ Space로 들여다보기
 
 세션이 늘어나면 세션 목록은 다섯 그룹으로 묶입니다. 입력을 기다리는 세션이 위로 오도록 정렬됩니다. Anthropic [공식 문서](https://code.claude.com/docs/en/agent-view)의 예시 화면입니다.
 
-![Agent View 메인 대시보드](../../../../images/agent-view-dashboard.0c05kjsy3_lkq.png)
+![Agent View 메인 대시보드](images/agent-view-dashboard.0c05kjsy3_lkq.png)
 
 실습에서 자주 마주칠 핵심 그룹입니다.
 

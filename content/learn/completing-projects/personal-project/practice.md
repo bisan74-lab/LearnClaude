@@ -274,11 +274,11 @@ Compound
 
 **Vercel**: Import 화면의 Environment Variables 섹션에서 Key/Value를 등록합니다.
 
-![Vercel Import 화면의 Environment Variables 섹션](../../../../images/vercel-configure.40seridxalxbg.png)
+![Vercel Import 화면의 Environment Variables 섹션](images/vercel-configure.40seridxalxbg.png)
 
 `.env.local` 파일이 있다면 **Import .env** 버튼으로 한 번에 등록할 수 있습니다.
 
-![Vercel Import .env 버튼으로 환경 변수를 한 번에 등록하는 화면](../../../../images/vercel-env-vars.26gnn2_5c616n.png)
+![Vercel Import .env 버튼으로 환경 변수를 한 번에 등록하는 화면](images/vercel-env-vars.26gnn2_5c616n.png)
 
 로컬과 Vercel 양쪽에 등록해야 합니다
 
