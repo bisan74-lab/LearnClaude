@@ -22,7 +22,7 @@ Copy MarkdownOpen
 
 ## [구조를 읽기 전의 추측](#구조를-읽기-전의-추측)
 
-![매 세션마다 빈 책상으로 출근하는 신입 사원 비유](/LearnClaude/images/empty-desk-newcomer.34mnuvhr3zo45.png)
+![매 세션마다 빈 책상으로 출근하는 신입 사원 비유](/images/empty-desk-newcomer.34mnuvhr3zo45.png)
 
 [CLAUDE.md 레슨](/learn/starting-conversations/context-management/claude-md)에서 살펴본 것처럼, LLM은 매 세션마다 프로젝트를 처음 보는 신입 사원과 같습니다. CLAUDE.md가 기본 매뉴얼을 건네주지만, 지금 손댈 파일 구조와 기존 패턴까지 담고 있지는 않습니다.
 

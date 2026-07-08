@@ -11,10 +11,6 @@ const SITEMAP_URL = `${BASE}/sitemap.xml`;
 const CONTENT_DIR = path.join(__dirname, '..', 'content');
 const IMAGES_DIR = path.join(__dirname, '..', 'images');
 const DELAY_MS = 300;
-// GitHub Pages serves this site under /LearnClaude/ (a project page, not a user/org
-// root page). Docsify resolves relative image paths against the domain root rather
-// than the actual document location, so image links must be absolute with this prefix.
-const SITE_BASE_PATH = '/LearnClaude';
 
 const turndown = new TurndownService({ headingStyle: 'atx', codeBlockStyle: 'fenced' });
 
@@ -112,7 +108,10 @@ async function processPage(url) {
   // so relative asset paths always resolve against the shell's location, not the
   // fetched markdown file's virtual path. A plain "images/x.png" (sibling of
   // index.html) works from every page; a computed "../../images/x.png" does not.
-  const imagePrefix = `${SITE_BASE_PATH}/images/`;
+  // Docsify auto-detects the GitHub Pages project subpath (e.g. /LearnClaude/) and
+  // prepends it to root-relative asset paths, so a plain "/images/x.png" resolves
+  // correctly without hardcoding the repo name here.
+  const imagePrefix = '/images/';
   const imgs = main.find('img').toArray();
   for (const img of imgs) {
     const src = $(img).attr('src');

@@ -315,7 +315,7 @@ Claude Code 사용에는 Claude 유료 구독(Pro 또는 Max)이 필요합니다
 
 1.  회사 이메일에서 Anthropic 팀 플랜 초대 메일을 확인합니다.
 
-![Anthropic 팀 플랜 초대 메일](/LearnClaude/images/prerequisites-team-invite.2cf92_41mllu0.png)
+![Anthropic 팀 플랜 초대 메일](/images/prerequisites-team-invite.2cf92_41mllu0.png)
 
 2.  메일의 **Accept invite** 링크를 사외에서 열어 Claude 회원가입과 Team 등록을 마칩니다.
 
@@ -415,7 +415,7 @@ Chrome Web Store의 [Claude 확장 페이지](https://chromewebstore.google.com/
 
 Chrome 툴바의 확장 아이콘을 클릭해 사이드 패널을 엽니다. 아래 화면처럼 오른쪽에 Claude 패널이 뜨고 상단에 모델 선택 (예: Opus 4.8), 하단에 명령어 입력창이 보이면 로그인까지 정상적으로 마쳤습니다.
 
-![Claude in Chrome 사이드 패널 정상 표시](/LearnClaude/images/prerequisites-claude-in-chrome.1rwkzzrqx_-rl.png)
+![Claude in Chrome 사이드 패널 정상 표시](/images/prerequisites-claude-in-chrome.1rwkzzrqx_-rl.png)
 
 Beta 기능
 

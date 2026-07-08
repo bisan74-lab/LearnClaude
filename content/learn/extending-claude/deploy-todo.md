@@ -50,13 +50,13 @@ gh 인증이 안 되어 있다면
 
 Claude가 저장소를 만들려면 GitHub CLI 인증이 필요합니다. `gh auth status`로 확인하고, 로그인이 안 되어 있으면 `gh auth login`을 먼저 실행합니다.
 
-![Claude가 push를 마친 뒤 내 GitHub 계정에 생긴 todo-tutorial 저장소](/LearnClaude/images/github-my-repo.0xrcnh6p7mq8m.png)
+![Claude가 push를 마친 뒤 내 GitHub 계정에 생긴 todo-tutorial 저장소](/images/github-my-repo.0xrcnh6p7mq8m.png)
 
 ## [Step 2: Vercel 계정 만들기](#vercel-signup)
 
 [vercel.com](https://vercel.com)을 열고 Sign Up을 클릭합니다. Continue with GitHub를 고른 뒤 이어지는 화면에서 Authorize를 누르면 가입이 끝납니다. 사전 준비에서 만든 GitHub 계정을 그대로 써서 새로 입력할 정보는 없습니다.
 
-![Vercel Sign Up 화면에서 Continue with GitHub를 고르는 위치](/LearnClaude/images/vercel-signup.1so8vkqhtzusk.png)
+![Vercel Sign Up 화면에서 Continue with GitHub를 고르는 위치](/images/vercel-signup.1so8vkqhtzusk.png)
 
 가입을 마치면 Vercel 대시보드가 열립니다.
 
@@ -64,21 +64,21 @@ Claude가 저장소를 만들려면 GitHub CLI 인증이 필요합니다. `gh au
 
 Vercel 대시보드에서 ① Add New... 드롭다운을 열고, 메뉴에서 Project를 클릭합니다.
 
-![Vercel 대시보드의 Add New Project 버튼](/LearnClaude/images/vercel-add-project.1-9szz-30tq3f.png)
+![Vercel 대시보드의 Add New Project 버튼](/images/vercel-add-project.1-9szz-30tq3f.png)
 
 ① Search 박스에 저장소 이름을 입력해 방금 만든 저장소를 찾고, ② 옆의 Import 버튼을 클릭합니다.
 
-![Vercel에서 todo-tutorial 저장소를 검색해 Import하는 화면](/LearnClaude/images/vercel-import-repo.3b4vbg_fjwzqc.png)
+![Vercel에서 todo-tutorial 저장소를 검색해 Import하는 화면](/images/vercel-import-repo.3b4vbg_fjwzqc.png)
 
 다음 화면에서 Application Preset은 Next.js로 자동 감지됩니다. Todo는 외부 키 없이 브라우저에서 동작하므로 Environment Variables는 비워둔 채 ① Deploy 버튼을 클릭합니다.
 
-![Vercel New Project 화면에서 Environment Variables를 비우고 Deploy를 누르는 위치](/LearnClaude/images/vercel-deploy.10r-6jcpunp91.png)
+![Vercel New Project 화면에서 Environment Variables를 비우고 Deploy를 누르는 위치](/images/vercel-deploy.10r-6jcpunp91.png)
 
 ## [Step 4: 배포 주소에서 Todo 확인하기](#step-4-배포-주소에서-todo-확인하기)
 
 빌드가 끝나면 저장소 이름이 들어간 `.vercel.app` 주소가 생깁니다. 주소를 열어 로컬과 같은 Todo 화면이 뜨는지 확인합니다.
 
-![배포된 .vercel.app 주소에서 뜬 Todo 앱](/LearnClaude/images/vercel-deployed-todo.1ct52hoj8vjz1.png)
+![배포된 .vercel.app 주소에서 뜬 Todo 앱](/images/vercel-deployed-todo.1ct52hoj8vjz1.png)
 
 내 노트북에서만 실행되던 Todo가 인터넷에 올라갔습니다. 이제 이 주소를 누구에게든 공유할 수 있는 상태가 되었습니다.
 

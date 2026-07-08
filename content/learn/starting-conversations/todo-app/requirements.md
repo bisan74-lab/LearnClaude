@@ -120,11 +120,11 @@ AI 가 결정할 자리가 없음
 
 이 강의는 실습 스택으로 **Next.js + Shadcn**을 씁니다. 선택 기준은 하나입니다. AI가 얼마나 잘 아는가.
 
-![Next.js 공식 홈페이지 스크린샷](/LearnClaude/images/nextjs-homepage.1a76yevch10e_.png)
+![Next.js 공식 홈페이지 스크린샷](/images/nextjs-homepage.1a76yevch10e_.png)
 
 **Next.js**는 React 위에 얹은 full-stack 프레임워크입니다. React 자체가 가장 널리 쓰이는 프론트엔드 라이브러리이고, Next.js는 그 위에서 학습 데이터가 가장 많이 쌓여 있습니다. 다른 프레임워크보다 최신 패턴에 가까운 코드가 제안될 가능성이 높습니다.
 
-![Shadcn 공식 홈페이지 스크린샷](/LearnClaude/images/shadcn-homepage.04h66dth2bfzb.png)
+![Shadcn 공식 홈페이지 스크린샷](/images/shadcn-homepage.04h66dth2bfzb.png)
 
 **Shadcn**은 UI 컴포넌트 라이브러리지만, 설치하면 컴포넌트 코드가 프로젝트 안에 들어옵니다.
 
