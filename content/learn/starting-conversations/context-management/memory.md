@@ -115,7 +115,7 @@ git checkout ch03-03
 
 Claude Code에서 `/memory` 를 입력합니다.
 
-![Claude Code의 /memory 실행 결과와 Open auto-memory folder 항목](/images/memory-command.0t42ihwt9x755.png)
+![Claude Code의 /memory 실행 결과와 Open auto-memory folder 항목](images/memory-command.0t42ihwt9x755.png)
 
 이번 세션에 로드된 메모리 파일들(내 전체 프로젝트용 CLAUDE.md, 프로젝트용 CLAUDE.md 등)과 함께, 맨 아래쪽에 **Open auto-memory folder** 항목이 있습니다. 위쪽 항목들을 고르면 해당 CLAUDE.md가 에디터에서 열리고, 맨 아래 항목을 고르면 자동 Memory 폴더가 파일 탐색기에서 열립니다.
 

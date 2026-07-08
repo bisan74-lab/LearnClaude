@@ -36,7 +36,7 @@ Rules가 "경로별로 켜고 끈다"는 조건으로 이 문제를 풀었다면
 
 Skill은 특정 작업이 들어왔을 때만 Claude가 꺼내 읽는 전문 매뉴얼입니다. 코드 리뷰, 커밋, 배포처럼 절차가 있는 작업을 CLAUDE.md에 계속 쌓지 않고, 필요한 순간에만 읽히도록 분리합니다.
 
-![CLAUDE.md와 Skill의 색인 유무 비교](/images/recipe-book-vs-notebook.08no4n7acplj_.png)
+![CLAUDE.md와 Skill의 색인 유무 비교](images/recipe-book-vs-notebook.08no4n7acplj_.png)
 
 CLAUDE.md는 색인 없는 손글씨 레시피 노트와 같습니다. 어디에 뭐가 적혔는지 모르니, 어떤 요리를 하려 해도 노트를 처음부터 다 펼쳐서 훑어야 합니다.
 

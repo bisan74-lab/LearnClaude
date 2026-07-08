@@ -24,7 +24,7 @@ Copy MarkdownOpen
 
 ## [Context Window: AI의 작업 책상](#context-window)
 
-![자료가 쌓일수록 시야에서 멀어지는 Context Window를 책상으로 비유한 그림](/images/context-window-desk.2br4z86188j94.png)
+![자료가 쌓일수록 시야에서 멀어지는 Context Window를 책상으로 비유한 그림](images/context-window-desk.2br4z86188j94.png)
 
 프로젝트 자료를 펼쳐놓고 일하는 **책상**을 떠올려 보세요. 책상이 넓을수록 문서를 동시에 많이 볼 수 있지만 한계가 있습니다. 자료가 쌓일수록 처음에 올려둔 것은 구석으로 밀려 보기 어려워집니다.
 
